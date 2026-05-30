@@ -1,24 +1,27 @@
 #include <stdio.h>
 
 int main() {
-    int num, reversed = 0, remainder, original;
+    int num, count = 0;
 
-    printf("Enter an integer: ");
+    printf("Enter a number: ");
     scanf("%d", &num);
 
-    original = num;  // store the original number
-
-    while (num != 0) {
-        remainder = num % 10;                 // extract last digit
-        reversed = reversed * 10 + remainder; // build reversed number
-        num /= 10;                            // remove last digit
-    }
-
-    if (original == reversed) {
-        printf("%d is a palindrome number.\n", original);
+    // Handle zero separately
+    if (num == 0) {
+        count = 1;
     } else {
-        printf("%d is not a palindrome number.\n", original);
+        // Work with positive numbers
+        if (num < 0) {
+            num = -num;  // make it positive
+        }
+
+        while (num != 0) {
+            num = num / 10;  // remove last digit
+            count++;
+        }
     }
+
+    printf("Number of digits = %d\n", count);
 
     return 0;
 }
