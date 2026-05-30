@@ -1,14 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int num;
-    printf("Enter a number: ");
+    int num, reversed = 0, remainder;
+
+    printf("Enter an integer: ");
     scanf("%d", &num);
 
-    printf("Multiplication Table of %d\n", num);
-    for (int i = 1; i <= 10; i++) {
-        printf("%d x %d = %d\n", num, i, num * i);
+    while (num != 0) {
+        remainder = num % 10;              // extract last digit
+        reversed = reversed * 10 + remainder; // build reversed number
+        num /= 10;                         // remove last digit
     }
+
+    printf("Reversed number = %d\n", reversed);
 
     return 0;
 }

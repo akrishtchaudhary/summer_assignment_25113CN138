@@ -1,20 +1,23 @@
 #include <stdio.h>
 
 int main() {
-    int n, i;
-    long factorial = 1;   // using long instead of unsigned long long
+    int num, product = 1, remainder;
 
-    printf("Enter a positive integer: ");
-    scanf("%d", &n);
+    printf("Enter an integer: ");
+    scanf("%d", &num);
 
-    if (n < 0) {
-        printf("Factorial of a negative number doesn't exist.\n");
+    // Handle case when number is 0
+    if (num == 0) {
+        product = 0;
     } else {
-        for (i = 1; i <= n; i++) {
-            factorial *= i;
+        while (num != 0) {
+            remainder = num % 10;       // extract last digit
+            product *= remainder;       // multiply digit to product
+            num /= 10;                  // remove last digit
         }
-        printf("Factorial of %d = %ld\n", n, factorial);
     }
+
+    printf("Product of digits = %d\n", product);
 
     return 0;
 }
