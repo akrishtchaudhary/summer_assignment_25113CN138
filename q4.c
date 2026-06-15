@@ -1,20 +1,23 @@
 #include <stdio.h>
 
-int main() {
-    int x, n, i;
-    long long result = 1;
-
-    printf("Enter base (x): ");
-    scanf("%d", &x);
-
-    printf("Enter exponent (n): ");
-    scanf("%d", &n);
-
+// Function to find factorial
+int factorial(int n) {
+    int i, fact = 1;
     for (i = 1; i <= n; i++) {
-        result = result * x;
+        fact = fact * i;
     }
+    return fact;
+}
 
-    printf("%d^%d = %lld\n", x, n, result);
+int main() {
+    int num, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    result = factorial(num);
+
+    printf("Factorial of %d = %d\n", num, result);
 
     return 0;
 }

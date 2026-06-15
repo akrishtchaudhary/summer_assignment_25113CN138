@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-int main() {
-    int n, count = 0;
-
-    printf("Enter a number: ");
-    scanf("%d", &n);
-
-    while (n > 0) {
-        count = count + (n & 1);  // check last bit
-        n = n >> 1;               // right shift by 1
+// Function to check prime
+int isPrime(int n) {
+    int i;
+    if (n <= 1) 
+        return 0;  // Not prime
+    
+    for (i = 2; i <= n/2; i++) {
+        if (n % i == 0)
+            return 0;  // Not prime
     }
-
-    printf("Number of set bits = %d\n", count);
-
-    return 0;
+    return 1;  // Prime
 }
+
+int main() {
+    int num;

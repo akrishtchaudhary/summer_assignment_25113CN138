@@ -1,27 +1,23 @@
 #include <stdio.h>
 
+// Function to calculate sum
+int sum(int a, int b) {
+    return a + b;
+}
+
 int main() {
-    int n, binary[32], i = 0;
+    int num1, num2, result;
 
-    printf("Enter a decimal number: ");
-    scanf("%d", &n);
+    printf("Enter first number: ");
+    scanf("%d", &num1);
 
-    if (n == 0) {
-        printf("Binary = 0\n");
-        return 0;
-    }
+    printf("Enter second number: ");
+    scanf("%d", &num2);
 
-    while (n > 0) {
-        binary[i] = n % 2;
-        n = n / 2;
-        i++;
-    }
+    // Call function
+    result = sum(num1, num2);
 
-    printf("Binary = ");
-
-    for (int j = i - 1; j >= 0; j--) {
-        printf("%d", binary[j]);
-    }
+    printf("Sum = %d\n", result);
 
     return 0;
 }
